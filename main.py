@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from routes import base
+
 app= FastAPI()
 
-
-@app.get("/")
-def welcom():
-    return{"message": "welcom"}
+app.include_router(base.base_route)
+# @app.get("/")
+# def welcom():
+#     return{"message": "welcom"}
