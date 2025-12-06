@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter, Depends
 import os 
-from helpers.config import get_setting,  Settings
+from helpers.config import get_settings,  Settings
 base_router = APIRouter(
     prefix="/base/v1", # prefix خاص بالراوت دا 
     tags=['base_v1'], # اسم خاص بالراوت دا بس
@@ -8,7 +8,7 @@ base_router = APIRouter(
 
 @base_router.get("/")
 
-async def welcom(app_setting : Settings =Depends(get_setting) ):
+async def welcom(app_setting : Settings =Depends(get_settings) ):
     # app_setting = get_setting()
 
     app_name = app_setting.APP_NAME
